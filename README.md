@@ -27,3 +27,7 @@ npx vite --host 0.0.0.0
 ## GitHub Pages
 
 Workflowet `.github/workflows/pages.yml` tester og bygger begge sider og publicerer `dist` ved push til `main` eller manuel start. Vælg **GitHub Actions** som Source under Settings → Pages. Relative assetstier understøtter repository-stien `/spaer/`. Ingen hemmeligheder kræves.
+
+## Licens
+
+Projektet er licenseret under GNU Affero General Public License v3.0 (AGPL-3.0-only). Se [LICENSE](LICENSE) for den fulde licenstekst. Tredjepartsafhængigheder beholder deres respektive licenser.
