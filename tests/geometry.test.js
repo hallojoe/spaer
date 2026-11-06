@@ -4,3 +4,5 @@ test('spacing never exceeds requested maximum',()=>{const r=calculate({...defaul
 test('mono roof uses full span',()=>assert.ok(Math.abs(calculate({...defaults,type:'mono',pitch:45}).rise-8)<1e-10));
 test('reject invalid imported dimensions',()=>{assert.throws(()=>validate({...defaults,width:NaN}));assert.throws(()=>validate({...defaults,pitch:90}));});
 test('3D distance',()=>assert.equal(distance({x:0,y:0,z:0},{x:3,y:4,z:12}),13));
+
+test('mono roof includes overhang at both eaves',()=>{const r=calculate({...defaults,type:'mono',width:8,length:12,pitch:45,overhang:.4});assert.ok(Math.abs(r.area-8.8*Math.SQRT2*12.8)<1e-10);});
