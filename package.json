@@ -1,0 +1,1 @@
+{"name":"spaer-studio","version":"1.0.0","private":true,"type":"module","scripts":{"build":"vite build --base=./","test":"node --test"},"dependencies":{"three":"0.180.0"},"devDependencies":{"vite":"7.1.12"}}

@@ -1,0 +1,4 @@
+export const defaults={name:'Mit tagprojekt',width:8,length:12,pitch:30,spacing:0.6,overhang:0.4,type:'gable'};
+export function validate(p){for(const [k,min,max] of [['width',2,30],['length',2,60],['pitch',5,60],['spacing',0.3,1.2],['overhang',0,1.5]]){if(!Number.isFinite(p[k])||p[k]<min||p[k]>max)throw Error('Kontrollér målene. Et eller flere felter er uden for intervallet.');}if(!['gable','mono'].includes(p.type))throw Error('Ukendt tagtype');return p;}
+export function calculate(p){validate(p);const run=p.type==='gable'?p.width/2:p.width;const rad=p.pitch*Math.PI/180;const rise=run*Math.tan(rad);const slope=(run+p.overhang)/Math.cos(rad);const bays=Math.ceil(p.length/p.spacing);return {rise,slope,area:slope*(p.length+2*p.overhang)*(p.type==='gable'?2:1),count:bays+1,actualSpacing:p.length/bays,footprint:p.width*p.length};}
+export function distance(a,b){return Math.hypot(a.x-b.x,a.y-b.y,a.z-b.z);}
